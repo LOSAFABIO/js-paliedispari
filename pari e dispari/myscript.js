@@ -11,52 +11,72 @@ Dichiariamo chi ha vinto.
 //scelta pari o dispari
 let scelta1 = 0
 
-let pari = document.getElementById("pari");
-pari.addEventListener(`click`, function(){
-    let scelta1 = prompt("scegli un numero pari");
+let pari    = document.getElementById("pari");
 
-    console.log(scelta1);
+pari.addEventListener(`click`, function(){
+
+    let scelta1         = prompt("scegli un numero");
+    const nPc           = numeroPc()
+    const somma         = scelta1 + nPc
+    
+    //io qui dentro so che l'utente ha scelto dispari, la somma totale è somma
+    //con questi due dati creo una funzione che mi ritorna indietro "vittoria" o "sconfitta"
+
+    
+    
+    const risultato = campione()
+
+    console.log( risultato )
 });
 
 let scelta2 = 0
 
 let dispari = document.getElementById("dispari");
 dispari.addEventListener(`click`, function(){
-    let scelta2 = prompt("scegli un numero dispari");
 
-    console.log(scelta2);
+    let scelta2 = prompt("scegli un numero");
+    const nPc   = numeroPc()
+    const somma = scelta2 + nPc
+    
+    //se somma è pari e io hoo scelto dispari perdo altrimenti vinco
+    //io qui dentro so che l'utente ha scelto dispari, la somma totale è somma
+    //con questi due dati creo una funzione che mi ritorna indietro "vittoria" o "sconfitta"
+    
+    const risultato = campione()
+ 
+    console.log( risultato )
+
 });
 
-//inserimento numero da 1 a 5
-
-//generare un numero random anch eper pc da 1 a 5 (con funzione)
-let sceltaPc= " ";  
-
-function numeroPc(numeroRandom){
+function numeroPc(){
     let sceltaPc = Math.floor(Math.random()* 5 + 1);
     return  sceltaPc;
 }
 
-console.log(numeroPc(sceltaPc))
-
-
-//somma dei numeri
-let somma = scelta1 + scelta2 + sceltaPc 
-console.log(somma);
-
-//stabilire se somma è pari o dispari ( con funzione)
-
-function campione(vittorioso){
-    if(scelta1 > sceltaPc){
-        document.writeln("Hai vinto");
-    }else if (scelta2 > sceltaPc){
-        document.writeln("Hai vinto");
-    } else{
-        document.writelnI("Ha vinto il PC")
+function campione(segno, somma){
+    let risultato = " ";
+    if (somma%2 != 0){
+        risultato = "Ho vinto";
+    }else{
+        risultato = "Ho perso";
     }
-    
+    return risultato;
 }
 
+/*
+//stabilire se somma è pari o dispari ( con funzione)
+let risultato = false
+function campione( segno, somma ){
+
+    if(somma%2 == 0){
+        risultato = true
+        console.log("pari");
+    } else{
+        console.log("dispari");
+    }
+    return risultato;
+}
+*/
 //dichiarare chi ha vinto
 
 
